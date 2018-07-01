@@ -1,43 +1,77 @@
-<h1>Burgers</h1>
+<div class="container bg">
+	
+	<div class="row">
+	    <div class="center col-sm-12">
+			<img src="assets/img/burger.png" alt="Eat-Da-Burger App">
+	        <h1> Devour a Burger</h1>
+	        <p></p>
+	    </div>
+  	</div>
+	<!-- end .row -->
 
-<h3>Order Your Burger!</h3>
+	<div class="row">
+	    <div class="col-sm-6">
 
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-    {{/unless}}
-  {{/each}}
-</ul>
+			<br>
+			<h2>Burgers Available To Devoured!</h2>
 
-<h5>Devoured Burgers!</h5>
+			<ul>
+			  {{#each burgers}}
+			    {{#unless this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
 
-<ul>
-  {{#each burgers}} 
-  {{#unless devoured}}
-  <li>
-    {{this.id}} {{this.burger_names}}
-     <button class ="btn-primary" type="submit">Devour It!</button>
-  </li>  
+			        <form action="/{{this.id}}?_method=PUT" method="POST">
+			          <input type="hidden" name="devoured" value="true">
+			          <button class="btn-primary" type="submit">Devour It!</button>
+			        </form>
 
+			      </li>
+			    {{/unless}}
+			  {{/each}}
+			</ul>
 
-    {{/unless}}
-  {{/each}}
-</ul>
+	    </div>
 
-<h5>Add a burger</h5>
-<form class="create-form">
+	    <div class="col-sm-6">
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="burger" name="burger_names">
-  </div>
+			<h2>Burgers That Have Been Devoured!</h2>
+			
+			  {{#each burgers}}
+			    {{#if this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
 
-  <div class="form-group">
-    <label for="burger">Did you devour your burger?</label>
-    <br>
-    <input type="radio" name="devoured" value="1" checked>Devoured!
-    <input type="radio" name="devoured" value="0"> Not Yet
-  </div>
+			      </li>
+			    {{/if}}
+			  {{/each}}
+			
+	    </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+  	</div>
+	<!-- end .row -->
+
+	<div class="row">
+	    <div class="center col-sm-12">
+
+			<h2>Add A Burger!</h2>
+
+			<form class="create-update-form" action="/" method="POST">
+
+			  <div class="form-group">
+			    <p>Enter a burger you want to order.</p>
+			    <input type="text" id="ca" name="burger_name">
+					<p> Click the Submit Order button.</p>
+			  </div>
+			  
+			  <button class="btn-primary" type="submit">Submit Order</button>
+			</form>
+
+	    </div>
+	
+  	</div>
+	<!-- end .row -->
+
+</div>
