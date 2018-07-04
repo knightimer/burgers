@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/knightimer"
+    "url": "git+https://github.com/knightimer.io"
   },
   "author": "knightimer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/knightimer"
+    "url": "https://github.com/knightimer/readme"
   },
-  "homepage": "https://github.com/knightimer",
+  "homepage": "https://github.com/knightimer/burger",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
